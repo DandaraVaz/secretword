@@ -82,16 +82,13 @@ function App() {
     const normalizedLetter = letter.toLowerCase();    
 
     // check with letter has already been utilized
-    console.log(normalizedLetter, guessedLetters, wrongLetters, "guessedLetters")
-    if (wrongLetters) {
+    if (
+      guessedLetters.includes(normalizedLetter) ||
       wrongLetters.includes(normalizedLetter)
-    } {
-      return;
-    };
-
-    if (guessedLetters && guessedLetters.includes(normalizedLetter)) {
+    ) {
       return;
     }
+
     console.log("letter")
     // Incluir as letras adivinhadas para acertadas ou erradas
     // push guessed letter or remove a guess
@@ -115,7 +112,7 @@ function App() {
 
   const clearLetterStates = ()  => {
     setGuessedLetters([]);
-    setWrongLetters();
+    setWrongLetters([]);
   };
 
   // check if guesses ended
